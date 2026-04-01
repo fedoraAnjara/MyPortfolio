@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import myPhoto from "../assets/1.png";
+import BackgroundEffects from "./BackgroundEffects";
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
@@ -12,12 +13,14 @@ export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800 px-4">
 
+        <BackgroundEffects />
+
       {/* Arrière-plan dynamique avec formes floues */}
       <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] bg-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
 
       {/* Glass container */}
-      <div className={`bg-white/10 
+      <div className={` relative z-10 bg-white/10 
                     backdrop-blur-lg 
                     border border-white/20 
                     rounded-3xl shadow-xl 
@@ -31,7 +34,7 @@ export default function Hero() {
           <h1 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-300 bg-clip-text text-transparent mb-4">
             Bonjour, je suis Fedora
           </h1>
-          <p className="text-white/80 text-lg md:text-xl mb-6">
+          <p className="text-white/90 text-lg md:text-xl mb-6">
             Développeur Fullstack passionné par React, TypeScript et l’IA.
             J’aime créer des applications modernes et performantes.
           </p>
@@ -44,12 +47,26 @@ export default function Hero() {
         </div>
 
         {/* Image à droite */}
-        <div className="flex-1 flex justify-center md:justify-end">
-          <img
+        <div className="flex-1 flex justify-center md:justify-end relative">
+
+        {/* Glow derrière */}
+        <div className="absolute w-72 h-72 bg-gradient-to-tr from-purple-500 via-pink-500 to-yellow-400 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+
+        {/* Cercle glass autour */}
+        <div className="relative p-2 rounded-full bg-white/10 backdrop-blur-lg border border-white/20">
+
+            {/* Image */}
+            <img
             src={myPhoto}
             alt="Fedora"
-            className="w-65 h-65 md:w-64 md:h-64 object-cover rounded-full border-4 border-white/30 shadow-[0_8px_32px_rgba(0,0,0,0.37)] transition-transform hover:scale-105 hover:translate-y-[-5px]"
-          />
+            className="w-60 h-60 md:w-72 md:h-72 object-cover rounded-full 
+                        border-4 border-white/30 
+                        shadow-[0_8px_32px_rgba(0,0,0,0.5)]
+                        transition-all duration-500
+                        hover:scale-105 hover:-translate-y-2
+                        animate-[float_6s_ease-in-out_infinite]"
+            />
+        </div>
         </div>
       </div>
     </section>
