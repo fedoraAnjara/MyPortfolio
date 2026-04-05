@@ -18,7 +18,9 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6 text-sm">
-          <li className="hover:text-gray-300 cursor-pointer">About</li>
+          <li >
+            <a href="#about" className="hover:text-gray-300">About</a>
+          </li>
           <li className="hover:text-gray-300 cursor-pointer">My Skills</li>
           <li className="hover:text-gray-300 cursor-pointer">Projects</li>
           <li className="hover:text-gray-300 cursor-pointer">Contact</li>
@@ -43,7 +45,7 @@ export default function Navbar() {
           p-4 text-white md:hidden">
 
           <ul className="flex flex-col gap-4">
-            <li>About</li>
+            <li><a href="#about">About</a></li>
             <li>My Skills</li>
             <li>Projects</li>
             <li>Contact</li>
